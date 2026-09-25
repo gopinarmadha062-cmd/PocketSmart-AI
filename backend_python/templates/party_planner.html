@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Party Budget Planner - PocketSmart AI</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="navbar">
+    <h2>PocketSmart AI</h2>
+    <div>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/home-planner">Home Planner</a>
+      <a href="/jewelry-planner">Jewelry Planner</a>
+      <a href="/history">History</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="card" style="background: #1e3a8a; color: white; text-align: center;">
+      <h2>Party Budget Planner</h2>
+      <p style="font-size: 0.85rem; opacity: 0.9;">Plan your perfect event with AI-powered budget recommendations</p>
+    </div>
+
+    <div class="card">
+      <form action="/party-budget" method="post">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label>Total Budget (₹)</label>
+            <input type="number" name="total_budget" value="5000" required>
+          </div>
+          <div class="form-group">
+            <label>Number of Guests</label>
+            <input type="number" name="num_guests" value="3" required>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label>Party Type</label>
+            <input type="text" name="party_type" value="Wedding" required>
+          </div>
+          <div class="form-group">
+            <label>Venue Type</label>
+            <input type="text" name="venue_type" value="Home">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Party Needs</label>
+          <label><input type="checkbox" name="needs_catering" checked> Catering</label>
+          <label><input type="checkbox" name="needs_decoration" checked> Decoration</label>
+          <label><input type="checkbox" name="needs_entertainment" checked> Entertainment</label>
+        </div>
+        <div class="form-group">
+          <label>Additional Requirements</label>
+          <textarea name="additional_requirements" rows="2" placeholder="Special requests, themes, dietary restrictions..."></textarea>
+        </div>
+        <button type="submit" class="btn" style="width: 100%;">Generate Budget Plan</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

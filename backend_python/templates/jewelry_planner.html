@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jewelry Budget Planner - PocketSmart AI</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="navbar">
+    <h2>PocketSmart AI</h2>
+    <div>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/home-planner">Home Planner</a>
+      <a href="/party-planner">Party Planner</a>
+      <a href="/history">History</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="card" style="background: #1e3a8a; color: white; text-align: center;">
+      <h2>Jewelry Budget Planner</h2>
+      <p style="font-size: 0.85rem; opacity: 0.9;">Get AI-powered jewelry recommendations within your budget for any occasion</p>
+    </div>
+
+    <div class="card">
+      <form action="/jewelry-budget" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label>Total Budget (₹)</label>
+          <input type="number" name="total_budget" value="5000" required>
+        </div>
+        <div class="form-group">
+          <label>Occasion</label>
+          <input type="text" name="occasion" value="Birthday" required>
+        </div>
+        <div class="form-group">
+          <label>Style Preferences</label>
+          <input type="text" name="preferences" value="Minimalist, modern, leather or silver">
+        </div>
+        <div class="form-group">
+          <label>Upload Outfit Image (Optional)</label>
+          <input type="file" name="image" accept="image/*">
+        </div>
+        <button type="submit" class="btn" style="width: 100%;">Get Recommendations</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

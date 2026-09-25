@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Recommendation History - PocketSmart AI</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="navbar">
+    <h2>PocketSmart AI</h2>
+    <div>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/home-planner">Home Planner</a>
+      <a href="/party-planner">Party Planner</a>
+      <a href="/jewelry-planner">Jewelry Planner</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="card" style="background: #1e3a8a; color: white; text-align: center;">
+      <h2>Your Recommendation History</h2>
+      <p style="font-size: 0.85rem; opacity: 0.9;">View and manage all your previous budget plans and recommendations</p>
+    </div>
+
+    <div class="card" id="historyContainer">
+      <p style="color: #64748b;">Loading saved recommendations...</p>
+    </div>
+  </div>
+  <script>
+    fetch('/recommendation-history')
+      .then(res => res.json())
+      .then(data => {
+        const c = document.getElementById('historyContainer');
+        if (!data.history || data.history.length === 0) {
+          c.innerHTML = '<p>No past recommendations found yet. Use a planner above to create one!</p>';
+          return;
+        }
+        let html = '<div style="display: grid; gap: 1rem;">';
+        data.history.forEach(item => {
+          html += `
+            <div style="border: 1px solid #e2e8f0; padding: 1rem; border-radius: 8px;">
+              <div style="display: flex; justify-content: space-between; font-weight: bold;">
+                <span style="text-transform: capitalize;">${item.recommendation_type} Budget</span>
+                <span style="color: #2563eb;">₹${item.result_summary.total_budget}</span>
+              </div>
+              <p style="color: #64748b; font-size: 0.8rem; margin-top: 0.4rem;">Date: ${item.timestamp}</p>
+            </div>
+          `;
+        });
+        html += '</div>';
+        c.innerHTML = html;
+      });
+  </script>
+</body>
+</html>

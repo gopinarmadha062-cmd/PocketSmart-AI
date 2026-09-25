@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home Interior Budget Planner - PocketSmart AI</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="navbar">
+    <h2>PocketSmart AI</h2>
+    <div>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/party-planner">Party Planner</a>
+      <a href="/jewelry-planner">Jewelry Planner</a>
+      <a href="/history">History</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="card" style="background: #1e3a8a; color: white; text-align: center;">
+      <h2>Home Interior Budget Planner</h2>
+      <p style="font-size: 0.85rem; opacity: 0.9;">Create a customized budget plan for your dream home interior</p>
+    </div>
+
+    <div class="card">
+      <form action="/home-budget" method="post" id="homeForm">
+        <div class="form-group">
+          <label>Total Budget (INR ₹)</label>
+          <input type="number" name="total_budget" value="5000" required>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label>Number of Lights/Fixtures</label>
+            <input type="number" name="num_lights" value="5">
+          </div>
+          <div class="form-group">
+            <label>Number of Ceiling Fans</label>
+            <input type="number" name="num_fans" value="4">
+          </div>
+          <div class="form-group">
+            <label>Number of Furniture Pieces</label>
+            <input type="number" name="num_furniture" value="2">
+          </div>
+          <div class="form-group">
+            <label>Number of Dining Tables</label>
+            <input type="number" name="num_dining_tables" value="1">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Rooms to Include</label>
+          <label><input type="checkbox" name="has_living_room" checked> Living Room</label>
+          <label><input type="checkbox" name="has_kitchen" checked> Kitchen</label>
+          <label><input type="checkbox" name="has_bedroom" checked> Bedroom</label>
+        </div>
+        <div class="form-group">
+          <label>Additional Requirements</label>
+          <textarea name="additional_requirements" rows="2" placeholder="Specific style or requirements..."></textarea>
+        </div>
+        <button type="submit" class="btn" style="width: 100%;">Generate Recommendations</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

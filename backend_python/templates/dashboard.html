@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - PocketSmart AI</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="navbar">
+    <h2>PocketSmart AI</h2>
+    <div>
+      <a href="/home-planner">Home Planner</a>
+      <a href="/party-planner">Party Planner</a>
+      <a href="/jewelry-planner">Jewelry Planner</a>
+      <a href="/history">History</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="card" style="background: linear-gradient(to right, #1e3a8a, #2563eb); color: white; text-align: center; padding: 2.5rem;">
+      <h1>Welcome, {{ user.username if user else 'sai' }}!</h1>
+      <p style="margin-top: 0.5rem; opacity: 0.9;">Choose a budget planner to get started with your personalized financial planning experience</p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+      <div class="card">
+        <h3>Home Budget Planner</h3>
+        <p style="color: #64748b; font-size: 0.85rem; margin: 0.8rem 0;">Plan interior design budget efficiently with AI recommendations for lighting, fans, and furniture.</p>
+        <a href="/home-planner" class="btn" style="width: 100%; text-align: center;">Get Started</a>
+      </div>
+      <div class="card">
+        <h3>Party Budget Planner</h3>
+        <p style="color: #64748b; font-size: 0.85rem; margin: 0.8rem 0;">Plan your perfect event with allocations across venue, catering, decoration, and entertainment.</p>
+        <a href="/party-planner" class="btn" style="width: 100%; text-align: center;">Get Started</a>
+      </div>
+      <div class="card">
+        <h3>Jewelry Budget Planner</h3>
+        <p style="color: #64748b; font-size: 0.85rem; margin: 0.8rem 0;">Find ideal jewelry pieces matching your outfit, occasion, and budget.</p>
+        <a href="/jewelry-planner" class="btn" style="width: 100%; text-align: center;">Get Started</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
